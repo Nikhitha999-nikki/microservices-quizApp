@@ -1,7 +1,6 @@
 package com.nikhitha.quiz_service.service;
 
 import com.nikhitha.quiz_service.dao.QuizDao;
-import com.nikhitha.quiz_service.model.Question;
 import com.nikhitha.quiz_service.model.Quiz;
 import com.nikhitha.quiz_service.model.QuestionWrapper;
 import com.nikhitha.quiz_service.model.Response;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import com.nikhitha.quiz_service.feign.QuizInterface;
 
 import java.util.ArrayList;
 import java.util.List;

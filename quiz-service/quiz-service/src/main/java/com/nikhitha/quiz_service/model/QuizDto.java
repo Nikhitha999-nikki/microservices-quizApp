@@ -1,4 +1,4 @@
-package com.nikhitha.quiz_service.controller;
+package com.nikhitha.quiz_service.model;
 
 import lombok.Data;
 

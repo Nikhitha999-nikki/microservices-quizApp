@@ -1,6 +1,7 @@
 package com.nikhitha.quiz_service.controller;
 
 import com.nikhitha.quiz_service.service.QuizService;
+import com.nikhitha.quiz_service.model.QuizDto;
 import com.nikhitha.quiz_service.model.QuestionWrapper;
 //import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;

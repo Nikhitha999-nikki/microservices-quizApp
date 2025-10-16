@@ -1,7 +1,7 @@
-package com.nikhitha.quizservice.dao;
+package com.nikhitha.quiz_service.dao;
 
 
-import com.nikhitha.quizservice.model.Quiz;
+import com.nikhitha.quiz_service.model.Quiz;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface QuizDao extends JpaRepository<Quiz,Integer>{
