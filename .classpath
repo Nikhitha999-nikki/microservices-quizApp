@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="quizApp/service-registry/src/main/java"/>
+	<classpathentry kind="src" path="quizApp/service-registry/src/test/java"/>
+	<classpathentry kind="src" path="quizApp/src/main/java"/>
+	<classpathentry kind="src" path="quizApp/src/test/java"/>
+	<classpathentry kind="output" path="quizApp/service-registry/target/classes"/>
+</classpath>
