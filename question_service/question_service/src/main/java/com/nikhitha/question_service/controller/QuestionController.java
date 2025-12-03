@@ -97,7 +97,7 @@ public class QuestionController {
 
     @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> getAllQuestions() {
-        return new ResponseEntity<>(questionservice.getAllQuestions(), HttpStatus.OK);
+        return questionservice.getAllQuestions();
     }
 
     @GetMapping("category/{category}")
@@ -107,10 +107,11 @@ public class QuestionController {
 
     @PostMapping("add")
     public ResponseEntity<String> addQuestion(@RequestBody Question question){
+
         return questionservice.addQuestion(question);
     }
 
-    @DeleteMapping("delete")
+    /*@DeleteMapping("delete")
     public ResponseEntity<String> deleteQuestion(@RequestBody Question question){
         return questionservice.deleteQuestion(question);
     }
@@ -136,6 +137,6 @@ public class QuestionController {
     @PostMapping("getScore")
     public ResponseEntity<Integer> getScore(@RequestBody List<Response> responses){
         return questionservice.getScore(responses);
-    }
+    }*/
 }
 

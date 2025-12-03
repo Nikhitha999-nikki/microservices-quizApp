@@ -1,11 +1,10 @@
-CREATE DATABASE questiondb
-\dt
+CREATE DATABASE questiondb;
 
-SELECT session_user, current_database();	--for checking the current database connection
+USE questiondb;
 
-CREATE TABLE public.question
+CREATE TABLE question
 (
-    id SERIAL PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     question_title TEXT NOT NULL,
     option1 TEXT NOT NULL,
     option2 TEXT NOT NULL,
@@ -37,4 +36,4 @@ INSERT INTO question
 	('Python', 'Easy', 'datetime', 'math', 'os', 'sys', 'Which Python module is used for working with dates and times?', 'datetime')
 ;
 
-SELECT * FROM public.question;
+SELECT * FROM question;

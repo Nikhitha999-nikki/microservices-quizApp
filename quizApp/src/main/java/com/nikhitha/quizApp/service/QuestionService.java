@@ -1,17 +1,20 @@
 package com.nikhitha.quizApp.service;
 
-import com.nikhitha.quizApp.Question;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.nikhitha.quizApp.dao.QuestionDao;
+import com.nikhitha.quizApp.model.Question;
 
 @Service
 public class QuestionService {
     @Autowired
-    QuestionDao questioDao;
+    QuestionDao questionDao;
 
     public ResponseEntity<List<Question>> getAllQuestions(){
         try{
@@ -24,16 +27,14 @@ public class QuestionService {
     }
     public ResponseEntity<List<Question>> getQuestionsByCategory(String category){
         try{
-            return new ResponseEntity<>(questionDao.findAll(), HttpStatus.OK);
+            return new ResponseEntity<>(questionDao.findByCategory(category), HttpStatus.OK);
         }catch(Exception e){
             e.printStackTrace();
         }
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
-        // return new ResponseEntity<>(questionDao.findByCategory(category),HttpStatus.OK);
     }
     public ResponseEntity<String> addQuestion(Question question){
         questionDao.save(question);
-        questioDao.delete(question);
         return new ResponseEntity<>("success",HttpStatus.CREATED);
     }
 }

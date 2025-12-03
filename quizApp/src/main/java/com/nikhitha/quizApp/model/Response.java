@@ -1,12 +1,12 @@
-package com.telusko.quizApp.model;
+package com.nikhitha.quizApp.model;
 
-import lombok.Data; 
-import lombok.RequiredArgsConstructor;;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor    
+@RequiredArgsConstructor
 public class Response {
     private Integer id;
-    private String response;  
+    private String response;
 
 }

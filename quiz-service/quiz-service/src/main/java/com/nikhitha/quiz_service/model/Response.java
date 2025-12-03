@@ -1,12 +1,9 @@
 package com.nikhitha.quiz_service.model;
 
-import lombok.Data; 
-import lombok.RequiredArgsConstructor;;
+import lombok.Data;
 
 @Data
-@RequiredArgsConstructor    
 public class Response {
     private Integer id;
-    private String response;  
-
+    private String response;
 }

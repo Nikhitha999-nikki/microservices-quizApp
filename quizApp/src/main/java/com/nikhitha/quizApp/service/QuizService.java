@@ -1,9 +1,22 @@
 package com.nikhitha.quizApp.service;
 
-import org.apache.coyote.Response;
-import org.springframework.stereotype.Service;
-@Service
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.nikhitha.quizApp.dao.QuestionDao;
+import com.nikhitha.quizApp.dao.QuizDao;
+import com.nikhitha.quizApp.model.Question;
+import com.nikhitha.quizApp.model.QuestionWrapper;
+import com.nikhitha.quizApp.model.Quiz;
+import com.nikhitha.quizApp.model.Response;
+
+@Service
 public class QuizService {
     @Autowired
     QuizDao quizDao;
@@ -30,7 +43,7 @@ public class QuizService {
             questionsForUser.add(qw);
         }
 
-        return new ResponseEntity<>(questionsForUser,HttpStatus.OK)
+        return new ResponseEntity<>(questionsForUser,HttpStatus.OK);
 
     }
 
