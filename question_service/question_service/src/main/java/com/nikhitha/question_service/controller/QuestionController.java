@@ -111,19 +111,11 @@ public class QuestionController {
         return questionservice.addQuestion(question);
     }
 
-    /*@DeleteMapping("delete")
-    public ResponseEntity<String> deleteQuestion(@RequestBody Question question){
-        return questionservice.deleteQuestion(question);
-    }
-
-    @PostMapping("update")
-    public ResponseEntity<String> updateQuestion(@RequestBody Question question){
-        return questionservice.updateQuestion(question);
-    }
+    // Optional: delete and update endpoints can be added later if needed
 
     @GetMapping("generate")
     public ResponseEntity<List<Integer>> getQuestionsForQuiz(
-        @RequestParam String categoryName, 
+        @RequestParam String categoryName,
         @RequestParam Integer numQuestions){
         return questionservice.getQuestionsForQuiz(categoryName,numQuestions);
     }
@@ -137,6 +129,6 @@ public class QuestionController {
     @PostMapping("getScore")
     public ResponseEntity<Integer> getScore(@RequestBody List<Response> responses){
         return questionservice.getScore(responses);
-    }*/
+    }
 }
 

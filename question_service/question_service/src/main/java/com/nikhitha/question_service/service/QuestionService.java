@@ -34,7 +34,7 @@ public class QuestionService {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return null;
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
     public ResponseEntity<String> addQuestion(Question question){
         questionDao.save(question);
