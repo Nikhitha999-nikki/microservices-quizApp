@@ -3,6 +3,7 @@ package com.nikhitha.quiz_service.controller;
 import com.nikhitha.quiz_service.service.QuizService;
 import com.nikhitha.quiz_service.model.QuizDto;
 import com.nikhitha.quiz_service.model.QuestionWrapper;
+import com.nikhitha.quiz_service.model.Response;
 //import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class QuizController {
     QuizService quizService;
 
     @PostMapping("create")
-    public ResponseEntity<String> createQuiz(@RequestBody  QuizDto quizDto){
+    public ResponseEntity<Integer> createQuiz(@RequestBody  QuizDto quizDto){
         return quizService.createQuiz(quizDto.getCategoryName(),quizDto.getNumQuestions(),quizDto.getTitle());
     }
     

@@ -45,7 +45,6 @@ public class QuestionService {
         List<Integer> questions=questionDao.findRandomQuestionByCategory(categoryName,numQuestions);
         return new ResponseEntity<>(questions,HttpStatus.OK);
     }
-/*
     public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(List<Integer> questionIds)
     {
         List<QuestionWrapper> wrappers=new ArrayList<>();
@@ -53,7 +52,6 @@ public class QuestionService {
 
         for(Integer id:questionIds)
         {
-            //Question question=questionDao.findById(id).get();
             questions.add(questionDao.findById(id).get());
         }
         for(Question question:questions)
@@ -61,7 +59,6 @@ public class QuestionService {
             QuestionWrapper wrapper=new QuestionWrapper();
             wrapper.setId(question.getId());
             wrapper.setQuestionTitle(question.getQuestionTitle());
-            //wrapper.setQuestion(question.getQuestion());
             wrapper.setOption1(question.getOption1());
             wrapper.setOption2(question.getOption2());
             wrapper.setOption3(question.getOption3());
@@ -81,5 +78,5 @@ public class QuestionService {
             }
         }
         return new ResponseEntity<>(right,HttpStatus.OK);
-    }*/
+    }
 }

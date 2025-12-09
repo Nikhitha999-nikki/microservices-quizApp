@@ -1,0 +1,16 @@
+INSERT INTO question (question_title, option1, option2, option3, option4, right_answer, difficulty_level, category) VALUES
+('What is the capital of France?', 'Paris', 'London', 'Berlin', 'Madrid', 'Paris', 'easy', 'Geography'),
+('What is 2 + 2?', '3', '4', '5', '6', '4', 'easy', 'Math'),
+('Who wrote Romeo and Juliet?', 'Shakespeare', 'Dickens', 'Austen', 'Hemingway', 'Shakespeare', 'medium', 'Literature'),
+('What is the largest planet in our solar system?', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Jupiter', 'easy', 'Science'),
+('What is the chemical symbol for water?', 'H2O', 'CO2', 'O2', 'N2', 'H2O', 'easy', 'Science'),
+('In which year did World War II end?', '1945', '1939', '1950', '1940', '1945', 'medium', 'History'),
+('What is the square root of 16?', '2', '4', '8', '16', '4', 'easy', 'Math'),
+('Who painted the Mona Lisa?', 'Van Gogh', 'Picasso', 'Da Vinci', 'Michelangelo', 'Da Vinci', 'medium', 'Art'),
+('What is the currency of Japan?', 'Yuan', 'Won', 'Yen', 'Ringgit', 'Yen', 'easy', 'Geography'),
+('What is the powerhouse of the cell?', 'Nucleus', 'Mitochondria', 'Ribosome', 'Endoplasmic Reticulum', 'Mitochondria', 'medium', 'Science'),
+('What is 10 multiplied by 5?', '15', '50', '25', '100', '50', 'easy', 'Math'),
+('Who was the first President of the United States?', 'Abraham Lincoln', 'George Washington', 'Thomas Jefferson', 'John Adams', 'George Washington', 'easy', 'History'),
+('What is the color of the sky on a clear day?', 'Green', 'Blue', 'Red', 'Yellow', 'Blue', 'easy', 'Science'),
+('What is the largest ocean on Earth?', 'Atlantic', 'Indian', 'Arctic', 'Pacific', 'Pacific', 'easy', 'Geography'),
+('What is the boiling point of water in Celsius?', '0', '50', '100', '150', '100', 'easy', 'Science');

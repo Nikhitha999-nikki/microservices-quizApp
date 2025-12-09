@@ -11,7 +11,7 @@ import com.nikhitha.quiz_service.model.Response;
 
 import com.nikhitha.quiz_service.model.QuestionWrapper;
 
-@FeignClient("QUESTION-SERVICE")
+@FeignClient("question-service")
 public interface QuizInterface {
 //     Define methods to call the Question Service endpoints
     @GetMapping("question/generate")

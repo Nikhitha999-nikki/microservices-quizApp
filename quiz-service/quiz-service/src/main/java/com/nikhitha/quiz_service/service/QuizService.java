@@ -24,14 +24,14 @@ public class QuizService {
     QuizInterface quizInterface;
     
 
-    public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
-        List<Integer> questions=quizInterface.getQuestionsForQuiz(category, numQ).getBody();
-        Quiz quiz=new Quiz();
+    public ResponseEntity<Integer> createQuiz(String category, int numQ, String title) {
+        List<Integer> questions = quizInterface.getQuestionsForQuiz(category, numQ).getBody();
+        Quiz quiz = new Quiz();
         quiz.setTitle(title);
         quiz.setQuestionIds(questions);
-        quizDao.save(quiz);
+        Quiz saved = quizDao.save(quiz);
 
-        return new ResponseEntity<>("success",HttpStatus.CREATED);
+        return new ResponseEntity<>(saved.getId(), HttpStatus.CREATED);
     }
 
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id){
