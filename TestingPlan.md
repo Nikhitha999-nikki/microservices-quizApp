@@ -29,9 +29,7 @@
 - [ ] POST /quiz-service/quiz/create (happy path: create quiz with valid JSON, e.g., {"categoryName":"Java","numQuestions":5,"title":"Java Quiz"})
 - [ ] GET /quiz-service/quiz/get/{id} (happy path: get quiz by ID)
 - [ ] POST /quiz-service/quiz/submit/{id} (happy path: submit responses with valid JSON)
-- [ ] Error paths: Invalid quiz ID, malformed JSON, quiz not found
-- [ ] Edge cases: Submit with wrong answers, quiz with 0 questions, concurrent submissions
-
+- [ ] Edge cases: Submit with wrong answers, quiz with 0 questions, concurrent submission
 ### Additional Checks
 - [ ] Verify database connectivity (check logs for SQL errors)
 - [ ] Test inter-service communication (e.g., quiz service calling question service)
