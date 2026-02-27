@@ -8,11 +8,13 @@ export default function TakeQuiz(){
   const [questions, setQuestions] = useState(null)
   const [answers, setAnswers] = useState({})
   const [loading, setLoading] = useState(false)
+  const [loadError, setLoadError] = useState('')
   const [current, setCurrent] = useState(0)
   const navigate = useNavigate()
 
   useEffect(()=>{
     setLoading(true)
+    setLoadError('')
     // quiz-service GET /quiz/get/{id} returns list of QuestionWrapper objects
     getQuiz(id).then(data=>{
       if(Array.isArray(data)){
@@ -24,6 +26,9 @@ export default function TakeQuiz(){
       } else {
         setQuestions([])
       }
+    }).catch(()=>{
+      setQuestions([])
+      setLoadError('Unable to load this quiz. Please try again.')
     }).finally(()=>setLoading(false))
   },[id])
 
@@ -45,6 +50,26 @@ export default function TakeQuiz(){
   }
 
   if(loading || !questions) return <div className="center py-5"><Spinner animation="border" /></div>
+
+  if(loadError){
+    return (
+      <Card className="p-4 card-quiz center">
+        <h5>Quiz {id}</h5>
+        <p className="small-muted mb-3">{loadError}</p>
+        <Button className="btn-gradient" onClick={()=>navigate('/')}>Back to Home</Button>
+      </Card>
+    )
+  }
+
+  if(questions.length === 0){
+    return (
+      <Card className="p-4 card-quiz center">
+        <h5>Quiz {id}</h5>
+        <p className="small-muted mb-3">No questions are available for this quiz.</p>
+        <Button className="btn-gradient" onClick={()=>navigate('/')}>Back to Home</Button>
+      </Card>
+    )
+  }
 
   const total = questions.length
   const q = questions[current]

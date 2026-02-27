@@ -12,7 +12,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class QuestionService {
@@ -48,15 +51,18 @@ public class QuestionService {
     public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(List<Integer> questionIds)
     {
         List<QuestionWrapper> wrappers=new ArrayList<>();
-        List<Question> questions=new ArrayList<>();
-
-        for(Integer id:questionIds)
-        {
-            questions.add(questionDao.findById(id).get());
+        if (questionIds == null || questionIds.isEmpty()) {
+            return new ResponseEntity<>(wrappers, HttpStatus.OK);
         }
-        for(Question question:questions)
-        {
-            QuestionWrapper wrapper=new QuestionWrapper();
+
+        for (Integer id : questionIds) {
+            Optional<Question> questionOpt = questionDao.findById(id);
+            if (questionOpt.isEmpty()) {
+                // Quiz references a deleted/missing question id.
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            Question question = questionOpt.get();
+            QuestionWrapper wrapper = new QuestionWrapper();
             wrapper.setId(question.getId());
             wrapper.setQuestionTitle(question.getQuestionTitle());
             wrapper.setOption1(question.getOption1());
@@ -69,14 +75,27 @@ public class QuestionService {
         return new ResponseEntity<>(wrappers,HttpStatus.OK);
     }
     public ResponseEntity<Integer> getScore(List<Response> responses){
-        
-        int right=0;
-        for(Response response:responses){
-            Question question=questionDao.findById(response.getId()).get();
+        int right = 0;
+        for (Response response : responses) {
+            Optional<Question> questionOpt = questionDao.findById(response.getId());
+            if (questionOpt.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            Question question = questionOpt.get();
             if(response.getResponse().equals(question.getRightAnswer())){
                 right++;
             }
         }
         return new ResponseEntity<>(right,HttpStatus.OK);
+    }
+
+    public ResponseEntity<Map<String, Long>> getCategoryCounts() {
+        List<Question> questions = questionDao.findAll();
+        Map<String, Long> counts = new LinkedHashMap<>();
+        for (Question q : questions) {
+            String category = q.getCategory();
+            counts.put(category, counts.getOrDefault(category, 0L) + 1L);
+        }
+        return new ResponseEntity<>(counts, HttpStatus.OK);
     }
 }

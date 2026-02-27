@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.nikhitha.quiz_service.feign.QuizInterface;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,24 +24,41 @@ public class QuizService {
     
 
     public ResponseEntity<Integer> createQuiz(String category, int numQ, String title) {
-        List<Integer> questions = quizInterface.getQuestionsForQuiz(category, numQ).getBody();
-        Quiz quiz = new Quiz();
-        quiz.setTitle(title);
-        quiz.setQuestionIds(questions);
-        Quiz saved = quizDao.save(quiz);
+        try {
+            ResponseEntity<List<Integer>> questionsResponse = quizInterface.getQuestionsForQuiz(category, numQ);
+            if (!questionsResponse.getStatusCode().is2xxSuccessful()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
 
-        return new ResponseEntity<>(saved.getId(), HttpStatus.CREATED);
+            List<Integer> questions = questionsResponse.getBody();
+            if (questions == null || questions.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+
+            Quiz quiz = new Quiz();
+            quiz.setTitle(title);
+            quiz.setQuestionIds(questions);
+            Quiz saved = quizDao.save(quiz);
+
+            return new ResponseEntity<>(saved.getId(), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+        }
     }
 
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id){
         Optional<Quiz> quizOpt = quizDao.findById(id);
-        if (quizOpt.isPresent()) {
+        if (quizOpt.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        try {
             Quiz quiz = quizOpt.get();
             List<Integer> questionIds = quiz.getQuestionIds();
             ResponseEntity<List<QuestionWrapper>> questions = quizInterface.getQuestionsFromId(questionIds);
             return questions;
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
         }
     }
 

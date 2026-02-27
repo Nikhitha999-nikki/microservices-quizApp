@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Card, Button, Row, Col } from 'react-bootstrap'
 import { useNavigate, Link } from 'react-router-dom'
-import { fetchAllQuestions, generateQuestions } from '../api'
+import { generateQuestions } from '../api'
 import QuizList from './QuizList'
 
 export default function Home(){
-  const [questions, setQuestions] = useState([])
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-
-  useEffect(()=>{
-    setLoading(true)
-    fetchAllQuestions().then(data=>{
-      setQuestions(data)
-    }).catch(()=>{}).finally(()=>setLoading(false))
-  },[])
 
   async function handleQuickQuiz(){
     setLoading(true)
@@ -29,7 +21,6 @@ export default function Home(){
 
   return (
     <div>
-      <QuizList />
       <Row className="mb-4">
         <Col>
           <Card className="p-3 card-quiz hero">
@@ -42,17 +33,7 @@ export default function Home(){
           </Card>
         </Col>
       </Row>
-
-      <Row>
-        {questions.map((q)=> (
-          <Col key={q.id} md={6} className="mb-3">
-            <Card className="p-3 card-quiz">
-              <h6 className="mb-1">{q.category}</h6>
-              <div className="text-muted small">{q.question}</div>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+      <QuizList />
     </div>
   )
 }

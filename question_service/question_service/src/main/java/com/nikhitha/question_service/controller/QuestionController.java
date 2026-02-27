@@ -84,6 +84,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("question")
@@ -129,6 +130,11 @@ public class QuestionController {
     @PostMapping("getScore")
     public ResponseEntity<Integer> getScore(@RequestBody List<Response> responses){
         return questionservice.getScore(responses);
+    }
+
+    @GetMapping("categoryCounts")
+    public ResponseEntity<Map<String, Long>> getCategoryCounts() {
+        return questionservice.getCategoryCounts();
     }
 }
 
