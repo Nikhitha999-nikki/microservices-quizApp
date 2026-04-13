@@ -61,6 +61,7 @@ This project follows **Microservices Architecture**, where each service is indep
 ## 📂 Project Structure
 
 microservices-quizApp/
+
 │
 ├── api-gateway/ # API Gateway service
 
@@ -122,23 +123,34 @@ mvn spring-boot:run
 ```
 # 🌐 Access Points
 API Gateway → http://localhost:8080
+
 Eureka Dashboard → http://localhost:8761
 
 # 📌 Contribution Guidelines
 
 We welcome contributors of all levels 🚀
+
 Pick an issue from Issues tab
-Follow clean code practices
+
+follow clean code practices
+
 Submit PR with proper description
 
 ## 🚀 Roadmap
 Phase 1
+
 Core services setup ✅
+
 Phase 2
+
 Service communication & stability
+
 Phase 3
+
 Authentication & user module
+
 Phase 4
+
 Deployment & scaling
 
 ## 🧑‍💻 Maintainer
