@@ -63,13 +63,20 @@ This project follows **Microservices Architecture**, where each service is indep
 microservices-quizApp/
 │
 ├── api-gateway/ # API Gateway service
+
 ├── service-registry/ # Eureka Server
+
 ├── quiz-service/ # Quiz management service
+
 ├── question_service/ # Question handling service
+
 ├── frontend/ # UI layer
+
 │
 ├── quizdb.sql # Database schema
+
 ├── TestingPlan.md # Testing documentation
+
 ├── README.md
 
 
