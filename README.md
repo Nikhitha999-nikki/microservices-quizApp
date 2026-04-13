@@ -97,11 +97,54 @@ microservices-quizApp/
 git clone https://github.com/Nikhitha999-nikki/microservices-quizApp.git
 cd microservices-quizApp
 
-## 🔹 Database Setup
+ 🔹 Database Setup
 Import quizdb.sql into MySQL
 Update DB credentials in application.properties
 
-## 🔹 Run Services (IMPORTANT ORDER)
+ 🔹 Run Services (IMPORTANT ORDER)
 1️⃣ Start Service Registry
 cd service-registry
 mvn spring-boot:run
+
+2️⃣ Start API Gateway
+cd api-gateway
+mvn spring-boot:run
+
+3️⃣ Start Services
+cd quiz-service
+mvn spring-boot:run
+
+cd question_service
+mvn spring-boot:run
+
+4️⃣ Start Frontend
+
+```
+# 🌐 Access Points
+API Gateway → http://localhost:8080
+Eureka Dashboard → http://localhost:8761
+
+# 📌 Contribution Guidelines
+
+We welcome contributors of all levels 🚀
+Pick an issue from Issues tab
+Follow clean code practices
+Submit PR with proper description
+
+## 🚀 Roadmap
+Phase 1
+Core services setup ✅
+Phase 2
+Service communication & stability
+Phase 3
+Authentication & user module
+Phase 4
+Deployment & scaling
+
+## 🧑‍💻 Maintainer
+Nikhitha
+(Project Kernel - NSoC 2026)
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ and contribute!
