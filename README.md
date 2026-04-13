@@ -1,43 +1,100 @@
 # 🚀 Microservices Quiz Application
 
 ## 📌 Overview
-The Microservices Quiz Application is a scalable and modular platform built using microservices architecture. It allows users to create, manage, and attempt quizzes efficiently.
+The Microservices Quiz Application is a distributed system designed to build and manage quizzes using a scalable microservices architecture.
 
-Unlike monolithic systems, this project separates functionalities into independent services, making it highly scalable, maintainable, and production-ready.
+This project separates core functionalities such as quiz management, question handling, and routing into independent services, enabling better scalability, maintainability, and real-world system design.
 
 ---
 
-## 🎯 Key Features
-- 📝 Create and manage quizzes
-- ❓ Attempt quizzes with multiple-choice questions
-- 📊 Track quiz results and performance
-- 🔐 Authentication & user management (planned/in-progress)
-- ⚡ Scalable microservices-based architecture
-- 🔄 Independent service deployment
+## 🎯 Features
 
+### ✅ Implemented
+- 📝 Quiz creation and management
+- ❓ Question service for handling quiz questions
+- 🌐 API Gateway for routing requests
+- 🧭 Service Registry for service discovery
+- 🎨 Basic frontend for interaction
+- 🗄️ Database integration (SQL-based)
+
+### 🚧 In Progress / Planned
+- 🔐 Authentication & Authorization
+- 📊 Result tracking system
+- 📈 Analytics dashboard
 ---
 
 ## 🏗️ Architecture
-This project follows **Microservices Architecture**, where each service handles a specific responsibility.
 
-### Core Services (example – update based on your repo):
-- Quiz Service → Handles quiz creation & questions
-- User Service → Manages users (if present)
-- API Gateway → Routes requests
-- Service Registry → Service discovery (if implemented)
+This project follows **Microservices Architecture**, where each service is independently developed and deployed.
 
-Microservices help in building applications as independent, scalable services instead of a single large system :contentReference[oaicite:2]{index=2}
+### 🔹 Services Overview
+
+- **API Gateway**
+  - Entry point for all client requests
+  - Routes requests to respective services
+
+- **Service Registry**
+  - Handles service discovery (Eureka)
+
+- **Quiz Service**
+  - Manages quiz creation and operations
+
+- **Question Service**
+  - Handles question-related operations
+
+- **Frontend**
+  - User interface for interacting with the system
 
 ---
 
 ## 🛠️ Tech Stack
-- **Backend:** Java, Spring Boot
-- **Microservices Tools:** Spring Cloud 
-- **Database:** MySQL 
-- **API Communication:** REST APIs
-- **Build Tool:** Maven 
-- **Version Control:** Git & GitHub
+
+- **Backend:** Java, Spring Boot  
+- **Microservices:** Spring Cloud (Eureka, Gateway)  
+- **Frontend:** HTML/CSS/JS (update if React/Angular)  
+- **Database:** MySQL  
+- **Build Tool:** Maven  
+- **Version Control:** Git & GitHub  
 
 ---
 
 ## 📂 Project Structure
+
+microservices-quizApp/
+│
+├── api-gateway/ # API Gateway service
+├── service-registry/ # Eureka Server
+├── quiz-service/ # Quiz management service
+├── question_service/ # Question handling service
+├── frontend/ # UI layer
+│
+├── quizdb.sql # Database schema
+├── TestingPlan.md # Testing documentation
+├── README.md
+
+
+---
+
+## ⚙️ Setup Instructions
+
+### 🔹 Prerequisites
+- Java (JDK 8+)
+- Maven
+- MySQL
+- Git
+
+---
+
+### 🔹 Clone Repository
+```bash
+git clone https://github.com/Nikhitha999-nikki/microservices-quizApp.git
+cd microservices-quizApp
+
+## 🔹 Database Setup
+Import quizdb.sql into MySQL
+Update DB credentials in application.properties
+
+## 🔹 Run Services (IMPORTANT ORDER)
+1️⃣ Start Service Registry
+cd service-registry
+mvn spring-boot:run
