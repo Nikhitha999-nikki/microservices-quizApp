@@ -99,7 +99,7 @@ This Code of Conduct applies to:
 - All community spaces (offline).  
 - Public spaces where a person represents the community (e.g., GitHub repos, Discord).  
 
-Whether you are **contributing code, writing documentation, attending discussions, or representing UI-Verse**, you are expected to follow this Code of Conduct.  
+Whether you are **contributing code, writing documentation, attending discussions, or representing microservices-quizApp**, you are expected to follow this Code of Conduct.  
 
 Examples: official email, social media accounts, or google meets.  
 
