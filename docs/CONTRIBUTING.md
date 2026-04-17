@@ -18,9 +18,9 @@ This guide will walk you through the entire contribution process, from setting u
 1. [Code of Conduct](#-code-of-conduct)
 2. [License](#-license)
 3. [Ways to Contribute](#-ways-to-contribute)
-Project Structure   
-4. [How You Can Contribute](#-How-You-Can-Contribute)
-5. [Getting Started](#-Getting-Started)
+4. [Project Structure](#-project-structure) 
+5. [How You Can Contribute](#-How-You-Can-Contribute)
+6. [Getting Started](#-Getting-Started)
 7. [PR review Process](#-pr-review-process)
 8. [Guidelines](#-Guidelines)
 9. [How To Contribute](#-how-to-contribute)
