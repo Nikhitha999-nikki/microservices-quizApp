@@ -32,7 +32,7 @@ This guide will walk you through the entire contribution process, from setting u
 
 ## 📜 Code of Conduct
 
-We expect all contributors to follow our [`Code of Conduct`](https://github.com/Nikhitha999-nikki/microservices-quizApp/blob/main/docs/CODEOFCONDUCT.md).
+We expect all contributors to follow our [`Code of Conduct`](https://github.com/Nikhitha999-nikki/microservices-quizApp/blob/main/CODEOFCONDUCT.md).
 
 By participating in this project, you agree to maintain a **respectful and inclusive environment** for everyone.
 
@@ -40,7 +40,7 @@ By participating in this project, you agree to maintain a **respectful and inclu
 
 ## 📜 License
 
-By contributing to this project, you agree that your contributions will be licensed under the [`MIT License`](https://github.com/Nikhitha999-nikki/microservices-quizApp/blob/main/docs/LICENSE).
+By contributing to this project, you agree that your contributions will be licensed under the [`MIT License`](https://github.com/Nikhitha999-nikki/microservices-quizApp/blob/main/LICENSE).
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
