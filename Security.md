@@ -1,64 +1,73 @@
-## Security Policy
-### Supported Versions
-The following versions of Microservices-QuizApp are currently supported with security updates:
+# 🔐 Security Policy
+
+## 📌 Supported Versions
 
 | Version | Supported |
 | ------- | --------- |
 | 1.x.x   | ✅ Supported |
-| 0.x.x   | ❌ Not supported |
+| <1.0    | ❌ Not supported |
 
 ---
 
-### About Microservices-QuizApp 
-Microservices-QuizApp is a smart health monitoring system designed to help hospitals manage patient health parameters remotely. Our goal is to enable doctors to access patient data anytime, anywhere — enabling faster and better treatment decisions.
+## 📌 Overview
 
-As a platform handling sensitive medical data, we take our security posture extremely seriously. We are committed to working with security researchers to verify and patch any discovered vulnerabilities.
-
----
-
-### In-Scope vs Out-Of-Scope
-**In-Scope:**
-- Authentication bypass or Privilege Escalation (e.g., Patient accessing Admin controls)
-- Sensitive Patient Data Leaks (e.g., Insecure Direct Object Reference)
-- Server-Side Injection (SQLi, NoSQLi, RCE)
-- Stored Cross-Site Scripting (XSS)
-
-**Out-Of-Scope:**
-- Social Engineering / Phishing attacks against HealConnect staff or hospitals.
-- Denial of Service (DoS / DDoS) attacks against the API.
-- Missing HTTP security headers (unless a specific exploit chain is provided).
-- UI/UX bugs or logic errors that do not affect the CIA (Confidentiality, Integrity, Availability) triad.
+The Microservices Quiz Application is a distributed system built using a microservices architecture.  
+It includes independent services for quiz management, question handling, API routing, and service discovery.
 
 ---
 
-### Reporting a Vulnerability
-If you discover a security vulnerability in HealConnect, we encourage you to report it as soon as possible. 
+## 🎯 Scope
 
-Please report vulnerabilities by emailing: **Microservices-QuizApp@gmail.com**. Include:
-1. A descriptive title and summary of the issue.
-2. Step-by-step reproduction instructions.
-3. Your assessment of the CVSS severity (see below).
-4. Any proof-of-concept (PoC) scripts or screenshots.
+### ✅ In-Scope
 
----
-
-### Vulnerability Severity Classification (CVSS)
-We classify vulnerabilities to prioritize our response to critical Patient Data Leaks over standard UI glitches:
-- **Critical:** Direct exposure of patient medical records (PII/PHI), Remote Code Execution, Auth Bypass.
-- **High:** Privilege escalation, Stored XSS impacting other users, unauthorized database modifications.
-- **Medium:** Reflected XSS, CSRF on non-critical actions.
-- **Low:** Minimal impact bugs (e.g., verbose error messages without sensitive data).
+- Unauthorized access to quiz or question services  
+- Issues in API Gateway routing that expose unintended endpoints  
+- Service-to-service communication vulnerabilities  
+- Data exposure between microservices  
+- Misconfigurations in service registry affecting service discovery  
 
 ---
 
-### Response Timeline (SLA) & Vulnerability Lifecycle
-We are committed to the following Service Level Agreements for white-hat reports:
-1. **Acknowledgement:** We will acknowledge receipt of your vulnerability report within **24 hours**.
-2. **Triaged:** We will confirm the validity and assign a severity rating within **3 days**.
-3. **Patched:** We aim to deploy a fix for Critical/High issues within **7 days**, and Medium/Low within 30 days.
-4. **Disclosed:** We follow a **90-day standard disclosure policy**. Please do not publicly disclose the vulnerability until it has been patched, or 90 days have passed since the report.
+### ❌ Out-of-Scope
+
+- UI/UX issues without security impact  
+- Feature requests or performance improvements  
+- Non-security-related bugs  
 
 ---
 
-### Data Handling Baseline
-Parampara commits to industry-standard data protection. All patient parameters and database reads/writes are encrypted in transit using secure TLS protocols. JWT tokens and session cookies are properly signed and heavily restricted. 
+## 📬 Reporting a Vulnerability
+
+If you discover a security issue, please report it responsibly.
+
+### Please include:
+- Description of the vulnerability  
+- Steps to reproduce  
+- Impact of the issue  
+- Proof of Concept (if available)  
+
+---
+
+## ⏱️ Response Timeline
+
+- Acknowledgement: Within 24 hours  
+- Further updates will be shared after review  
+
+---
+
+## 🔒 Responsible Disclosure
+
+- Do not publicly disclose vulnerabilities before they are resolved  
+- Test only on services and data you own or are authorized to use  
+
+---
+
+## ⚖️ Safe Harbor
+
+We support good-faith security research and will work with researchers to resolve valid issues responsibly.
+
+---
+
+## 🙌 Acknowledgements
+
+We appreciate contributions from the community that help improve the security of this project.
