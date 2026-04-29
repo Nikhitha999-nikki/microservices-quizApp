@@ -22,7 +22,7 @@ export default function App(){
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/create" element={<ProtectedRoute><CreateQuiz /></ProtectedRoute>} />
             <Route path="/quiz/:id" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
-            <Route path="/result/:id" element={<ProtectedRoute><Result /></ProtectedRoute>} />
+            <Route path="/result/:id" element={<Result />} />
           </Routes>
         </div>
       </div>
