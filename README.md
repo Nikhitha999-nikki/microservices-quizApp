@@ -97,30 +97,42 @@ microservices-quizApp/
 ```bash
 git clone https://github.com/Nikhitha999-nikki/microservices-quizApp.git
 cd microservices-quizApp
-
- 🔹 Database Setup
-Import quizdb.sql into MySQL
-Update DB credentials in application.properties
-
- 🔹 Run Services (IMPORTANT ORDER)
-1️⃣ Start Service Registry
-cd service-registry
-mvn spring-boot:run
-
-2️⃣ Start API Gateway
-cd api-gateway
-mvn spring-boot:run
-
-3️⃣ Start Services
-cd quiz-service
-mvn spring-boot:run
-
-cd question_service
-mvn spring-boot:run
-
-4️⃣ Start Frontend
-
 ```
+
+### 🔹 Database Setup
+Import `quizdb.sql` into MySQL
+Update DB credentials in `application.properties`
+
+### 🔹 Run Services (IMPORTANT ORDER)
+
+*Note: Open a separate terminal from the project root for each service.*
+
+**1️⃣ Start Service Registry**
+```bash
+mvn -f service-registry/pom.xml spring-boot:run
+```
+
+**2️⃣ Start API Gateway**
+```bash
+mvn -f api-gateway/pom.xml spring-boot:run
+```
+
+**3️⃣ Start Services**
+```bash
+mvn -f quiz-service/quiz-service/pom.xml spring-boot:run
+```
+
+```bash
+mvn -f question_service/question_service/pom.xml spring-boot:run
+```
+
+**4️⃣ Start Frontend**
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
 # 🌐 Access Points
 API Gateway → http://localhost:8080
 
